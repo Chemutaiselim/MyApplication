@@ -8,8 +8,11 @@ lateinit var binding: ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //view binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //calculate the tip
 
     }
 }
