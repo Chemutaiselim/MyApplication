@@ -25,13 +25,17 @@ class MainActivity : AppCompatActivity() {
         val stringInTextField = binding.costOfService.text.toString()
         //.text references the text in the UI
         //convert the acquired text to double.
-       val cost = stringInTextField.toDouble()
+       val cost = stringInTextField.toDoubleOrNull()
+        //Add null pointers
+        if (cost==null){
+            binding.tipResult.text=""
+            return
+        }
 
         //Checked Radio Button
 
         //assign the options to integers
-        val selectedId = binding.tipOptions.checkedRadioButtonId
-        val tipPercentage = when (selectedId) {
+        val tipPercentage = when (binding.tipOptions.checkedRadioButtonId) {
             R.id.option_twenty_percent -> 0.20
             R.id.option_eighteen_percent -> 0.18
             else -> 0.15
@@ -48,6 +52,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         //convert to required currency
+        //change the string resource, add %s
+
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
         binding.tipResult.text= getString(R.string.tip_amount, formattedTip)
     }
