@@ -1,7 +1,9 @@
 package com.pamela.myapplication
 
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.pamela.myapplication.databinding.ActivityMainBinding
 import java.text.NumberFormat
 import kotlin.math.ceil
@@ -31,6 +33,8 @@ class MainActivity : AppCompatActivity() {
             binding.tipResult.text=""
             return
         }
+        //Show Result
+        Log.v(TAG,"{$cost}")
 
         //Checked Radio Button
 
@@ -40,15 +44,22 @@ class MainActivity : AppCompatActivity() {
             R.id.option_eighteen_percent -> 0.18
             else -> 0.15
         }
+        //Show Result
+        Log.v(TAG,"{$tipPercentage}")
 
         //Calculate the tip and roundup
         var tip = tipPercentage * cost
         //the switch
+
+        //Show Result
+        Log.v(TAG,"{$tip}")
         val roundUp = binding.roundUpSwitch.isChecked
         //if the roundUp statement is true;
         if (roundUp){
             //The ceil function can round up the tip
             tip=ceil(tip)
+            //Show Result
+            Log.v(TAG,"{$tip}")
         }
 
         //convert to required currency
@@ -56,6 +67,8 @@ class MainActivity : AppCompatActivity() {
 
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
         binding.tipResult.text= getString(R.string.tip_amount, formattedTip)
+        //Show Result
+        Log.v(TAG,"{$formattedTip}")
     }
 }
 
