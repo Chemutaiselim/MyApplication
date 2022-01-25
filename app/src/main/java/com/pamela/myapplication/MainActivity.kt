@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun calculateTip() {
         //Store the cost of service from edit text
-        val stringInTextField = binding.costOfService.text.toString().trim()
+        val stringInTextField = binding.costOfServiceEditText.text.toString().trim()
         //.text references the text in the UI
         //convert the acquired text to double.
         if (stringInTextField.isEmpty()) {
