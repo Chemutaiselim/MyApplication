@@ -7,6 +7,8 @@ android {
     compileSdk 31
 
     defaultConfig {
+        //to be used in lower APIs
+        //vectorDrawables.useSupportLibrary=true
         applicationId "com.pamela.myapplication"
         minSdk 21
         targetSdk 31
