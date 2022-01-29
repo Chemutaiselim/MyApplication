@@ -4,7 +4,7 @@
     //Style textView
 
     <style name="Widget.TipTime.TextView." parent="Widget.MaterialComponents.TextView">
-        <item name="android:minHeight">48dp</item>
+        <item name="android:minHeight">@dimen/min_height_text</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
@@ -12,7 +12,7 @@
     //Style switch button
 
     <style name="Widget.TipTime.CompoundButton.Switch." parent="Widget.MaterialComponents.CompoundButton.Switch">
-        <item name="android:minHeight">48dp</item>
+        <item name="android:minHeight">@dimen/min_height_text</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:textAppearance">?attr/textAppearanceBody1</item>
     </style>
