@@ -43,7 +43,7 @@ class CalculatorTests{
 
         //To get the editText and type 50.00 on the EditText View
         onView(withId(R.id.cost_of_service_edit_text))
-            .perform(typeText("50.00"))
+            .perform(typeText("56.00"))
 
             //To click the buttonView
         onView(withId(R.id.calculate_button))
@@ -51,14 +51,19 @@ class CalculatorTests{
 
         //To compare the result with 10.00
 
-        onView(withId(R.id.tip_result)).check(matches(withText(containsString("11.00"))))
+        onView(withId(R.id.tip_result)).check(matches(withText(containsString("12.00"))))
 
-        //On pressing the roundup Switch
         onView(withId(R.id.round_up_switch))
             .perform(click())
 
-        onView(withId(R.id.tip_result)).check(matches(withText(containsString("11.00"))))
-        
+        //To click the buttonView
+        onView(withId(R.id.calculate_button))
+            .perform(click())
+
+        onView(withId(R.id.tip_result)).check(matches(withText(containsString("11.20"))))
+
+
+
     }
 
     @Test
@@ -66,30 +71,10 @@ class CalculatorTests{
 
         //To get the editText and type 50.00 on the EditText View
         onView(withId(R.id.cost_of_service_edit_text))
-            .perform(typeText("55.00"))
+            .perform(typeText("50.00"))
 
-        //To click the buttonView
-        onView(withId(R.id.calculate_button))
-            .perform(click())
-
-        //To compare the result with 10.00
-
-        onView(withId(R.id.tip_result)).check(matches(withText(containsString("10.00"))))
-
-        //On pressing the roundup Switch
-        onView(withId(R.id.round_up_switch))
-            .perform(click())
-
-        onView(withId(R.id.tip_result)).check(matches(withText(containsString("9.90"))))
-
-    }
-
-    @Test
-    fun calculate_15_percent_tip(){
-
-        //To get the editText and type 50.00 on the EditText View
-        onView(withId(R.id.cost_of_service_edit_text))
-            .perform(typeText("55.00"))
+        //press 18%
+        onView(withId(R.id.option_eighteen_percent)).perform(click())
 
         //To click the buttonView
         onView(withId(R.id.calculate_button))
@@ -99,12 +84,28 @@ class CalculatorTests{
 
         onView(withId(R.id.tip_result)).check(matches(withText(containsString("9.00"))))
 
-        //On pressing the roundup Switch
-        onView(withId(R.id.round_up_switch))
+    }
+
+    @Test
+    fun calculate_15_percent_tip(){
+
+        //To get the editText and type 50.00 on the EditText View
+        onView(withId(R.id.cost_of_service_edit_text))
+            .perform(typeText("50.00"))
+
+        //press 15%
+        onView(withId(R.id.option_fifteen_percent)).perform(click())
+
+        //To click the buttonView
+        onView(withId(R.id.calculate_button))
             .perform(click())
 
-        onView(withId(R.id.tip_result)).check(matches(withText(containsString("8.25"))))
+        //To compare the result with 10.00
+
+        onView(withId(R.id.tip_result)).check(matches(withText(containsString("8.00"))))
+
 
     }
+
 
 }
